@@ -9,21 +9,22 @@
 			$scope.text='';
 			//初始化列表，一般视图中的列表在js中都是通过数组遍历出来
 			$scope.lists=todoServes.getLists();
+
 			//添加todo
 			$scope.add= function () {
 				if(!$scope.text){
 					return;
 				}
 				todoServes.add($scope.text);
-				$scope.lists=todoServes.getLists();
 				//清空文本框
 				$scope.text='';
 			};
+
 			//处理删除
 			$scope.remove= function (i) {
 				todoServes.remove(i);
-				$scope.lists=todoServes.getLists();
 			};
+
 			//清空已完成任务
 			$scope.clear=function () {
 				todoServes.clear();
@@ -48,7 +49,6 @@
 			//全部选择完成或不完成
 			$scope.toggleAll=function () {
 				todoServes.toggleAll();
-				$scope.lists=todoServes.getLists();
 			};
 
 			$scope.toggle=function () {
